@@ -1,3 +1,4 @@
+
 // ignore_for_file: prefer_const_constructors, camel_case_types
 
 import 'package:flutter/material.dart';
@@ -22,12 +23,24 @@ class TODO extends StatelessWidget {
 }
 
 class _MYHOMEState extends State<MYHOME> {
-  int c=0;
+  
 
   void todo()
   {
     setState(() {
-        c++;
+       
+       showDialog(context: context, builder: (BuildContext){
+        String newtodo="";
+        return AlertDialog(
+          title: Text("TODO"),
+          content: TextField(
+            onChanged: (value){
+              newtodo=value;
+            },
+          ),
+        );
+       });
+
     });
   }
   @override
@@ -51,6 +64,3 @@ class _MYHOMEState extends State<MYHOME> {
     );
   }
 }
-
-
-
